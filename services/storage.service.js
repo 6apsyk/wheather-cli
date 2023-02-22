@@ -2,7 +2,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 import { promises } from 'fs';
 
-const filePath = join(homedir(), 'wheather-file.json')
+const filePath = join(homedir(), 'weather-file.json')
 console.log(filePath)
 
 const TOKEN_DICTIONARY = {

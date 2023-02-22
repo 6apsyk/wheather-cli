@@ -1,13 +1,13 @@
 import { getArgs } from "./helpers/args.js"
-import { getIcon, getWheather } from "./services/api.service.js"
+import { getIcon, getWeather } from "./services/api.service.js"
 import { printError, printHelp, printSuccess, printWeather } from "./services/log.service.js"
 import { getKeyValue, saveKeyValue, TOKEN_DICTIONARY } from "./services/storage.service.js"
 
 const getForcast = async () => {
     try {
         const city = process.env.CITY ?? await getKeyValue(TOKEN_DICTIONARY.city)
-        const wheather = await getWheather(city)
-        printWeather(wheather, getIcon(wheather?.weather[0]?.icon))
+        const weather = await getWeather(city)
+        printWeather(weather, getIcon(weather?.weather[0]?.icon))
     } catch (e) {
         if (e?.response?.status === 401) {
             printError('Неверно указан токен!')

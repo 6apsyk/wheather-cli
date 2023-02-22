@@ -26,10 +26,10 @@ const getIcon = (icon) => {
     }
 }
 
-const getWheather = async (city) => {
+const getWeather = async (city) => {
 
     const API_KEY = process.env.TOKEN ?? await getKeyValue(TOKEN_DICTIONARY.token)
-    console.log(API_KEY)
+    // console.log(API_KEY)
     const response = await axios.get('http://api.openweathermap.org/geo/1.0/direct', {
         params: {
             q: city,
@@ -52,4 +52,4 @@ const getWheather = async (city) => {
 
 }
 
-export { getWheather, getIcon }
+export { getWeather, getIcon }
