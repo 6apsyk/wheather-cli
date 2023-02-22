@@ -3,6 +3,29 @@ import { getKeyValue, TOKEN_DICTIONARY } from "./storage.service.js"
 
 // const key = 'a3e003feebbee39c7d59ca9a3c5b41c4'
 
+const getIcon = (icon) => {
+    switch (icon.slice(0, -1)) {
+        case '01':
+            return '☀️';
+        case '02':
+            return '🌤️';
+        case '03':
+            return '☁️';
+        case '04':
+            return '☁️';
+        case '09':
+            return '🌧️';
+        case '10':
+            return '🌦️';
+        case '11':
+            return '🌩️';
+        case '13':
+            return '❄️';
+        case '50':
+            return '🌫️';
+    }
+}
+
 const getWheather = async (city) => {
 
     const API_KEY = process.env.TOKEN ?? await getKeyValue(TOKEN_DICTIONARY.token)
@@ -29,4 +52,4 @@ const getWheather = async (city) => {
 
 }
 
-export { getWheather }
+export { getWheather, getIcon }
